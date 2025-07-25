@@ -37,4 +37,7 @@ public class UpdateCarDto {
     @NotNull(message = "Price per day is required")
     @DecimalMin(value = "0.0", inclusive = false, message = "Price must be greater than 0")
     BigDecimal pricePerDay;
+
+    @NotNull(message = "Is available is required")
+    boolean isAvailable;
 }

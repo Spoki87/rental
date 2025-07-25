@@ -1,16 +1,14 @@
 package com.rental.car.model;
 
+import com.rental.car.dto.request.UpdateCarDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
 @Getter
-@Setter
 @NoArgsConstructor
 @Table(name = "car")
 public class Car {
@@ -36,5 +34,29 @@ public class Car {
 
     private BigDecimal pricePerDay;
 
-    private boolean available;
+    private boolean isAvailable;
+
+    public Car(CarType type, String brand, String model, String vin, String registrationNumber, FuelType fuelType, int year, BigDecimal pricePerDay) {
+        this.type = type;
+        this.brand = brand;
+        this.model = model;
+        this.vin = vin;
+        this.registrationNumber = registrationNumber;
+        this.fuelType = fuelType;
+        this.year = year;
+        this.pricePerDay = pricePerDay;
+        this.isAvailable = false;
+    }
+
+    public void updateCarDetails(UpdateCarDto updateCarDto){
+        this.type = updateCarDto.getType();
+        this.brand = updateCarDto.getBrand();
+        this.model = updateCarDto.getModel();
+        this.vin = updateCarDto.getVin();
+        this.registrationNumber = updateCarDto.getRegistrationNumber();
+        this.fuelType = updateCarDto.getFuelType();
+        this.year = updateCarDto.getYear();
+        this.pricePerDay = updateCarDto.getPricePerDay();
+        this.isAvailable = updateCarDto.isAvailable();
+    }
 }

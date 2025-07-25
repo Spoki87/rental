@@ -12,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Pageable;
 import java.util.UUID;
 
 @RestController
@@ -29,9 +28,9 @@ public class CarController {
     }
 
     @GetMapping()
-    public ResponseEntity<Response<Page<CarDto>>> getCars(Pageable pageable) {
-        Page<CarDto> page = carService.getCars(pageable);
-        return ResponseEntity.ok(Response.success("Cars fetched",page, HttpStatus.OK));
+    public ResponseEntity<Response<Page<CarDto>>> getCars(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "100") int size) {
+        Page<CarDto> carDtoPage = carService.getCars(page,size);
+        return ResponseEntity.ok(Response.success("Cars fetched",carDtoPage, HttpStatus.OK));
     }
 
     @PostMapping()
