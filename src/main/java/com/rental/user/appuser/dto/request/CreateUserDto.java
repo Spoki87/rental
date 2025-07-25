@@ -7,9 +7,13 @@ import lombok.Value;
 
 @Value
 public class CreateUserDto {
-    @NotBlank(message = "Username is required. Please provide a valid username")
-    @Size(min = 6, max = 20, message = "Username must be between 6 and 20 characters long")
-    String username;
+    @NotBlank(message = "First name is required. Please provide a valid username")
+    @Size(max = 255, message = "First name cannot be longer than 255 letters")
+    String firstName;
+
+    @NotBlank(message = "Last name is required. Please provide a valid last name")
+    @Size(max = 255, message = "Last name cannot be longer than 255 letters")
+    String lastName;
 
     @NotBlank(message = "Email is required. Please provide a valid email address")
     @Email(message = "The email format is invalid. Please provide a valid email")

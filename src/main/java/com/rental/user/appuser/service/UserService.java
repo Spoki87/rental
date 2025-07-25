@@ -38,7 +38,8 @@ public class UserService implements UserDetailsService {
         }
 
         User user = new User(
-                request.getUsername(),
+                request.getFirstName(),
+                request.getLastName(),
                 request.getEmail(),
                 bCryptPasswordEncoder.encode(request.getPassword()),
                 Role.USER);
