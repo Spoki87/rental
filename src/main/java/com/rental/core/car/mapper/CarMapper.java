@@ -1,8 +1,8 @@
-package com.rental.car.mapper;
+package com.rental.core.car.mapper;
 
-import com.rental.car.dto.request.CreateCarDto;
-import com.rental.car.dto.response.CarDto;
-import com.rental.car.model.Car;
+import com.rental.core.car.dto.request.CreateCarDto;
+import com.rental.core.car.dto.response.CarDto;
+import com.rental.core.car.model.Car;
 import org.springframework.stereotype.Component;
 
 @Component

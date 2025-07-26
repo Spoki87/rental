@@ -1,6 +1,6 @@
-package com.rental.car.repository;
+package com.rental.core.car.repository;
 
-import com.rental.car.model.Car;
+import com.rental.core.car.model.Car;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -42,7 +42,7 @@ public class UserService implements UserDetailsService {
                 request.getLastName(),
                 request.getEmail(),
                 bCryptPasswordEncoder.encode(request.getPassword()),
-                Role.USER);
+                Role.CLIENT);
 
         userRepository.save(user);
         registrationTokenService.createToken(user);

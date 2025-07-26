@@ -1,11 +1,11 @@
-package com.rental.car.service;
+package com.rental.core.car.service;
 
-import com.rental.car.dto.request.CreateCarDto;
-import com.rental.car.dto.request.UpdateCarDto;
-import com.rental.car.dto.response.CarDto;
-import com.rental.car.mapper.CarMapper;
-import com.rental.car.model.Car;
-import com.rental.car.repository.CarRepository;
+import com.rental.core.car.dto.request.CreateCarDto;
+import com.rental.core.car.dto.request.UpdateCarDto;
+import com.rental.core.car.dto.response.CarDto;
+import com.rental.core.car.mapper.CarMapper;
+import com.rental.core.car.model.Car;
+import com.rental.core.car.repository.CarRepository;
 import com.rental.exception.domain.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

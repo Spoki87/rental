@@ -22,19 +22,26 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
+    @Column(name = "last_name", nullable = false)
     private String lastName;
 
+    @Column(name = "email", nullable = false)
     private String email;
 
+    @Column(name = "password", nullable = false)
     private String password;
 
+    @Column(name = "locked")
     private boolean locked;
 
+    @Column(name = "enabled")
     private Boolean enabled;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "role")
     private Role role;
 
     public User(String firstName, String lastName, String email, String password,Role role) {

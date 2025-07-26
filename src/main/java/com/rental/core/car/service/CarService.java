@@ -1,8 +1,8 @@
-package com.rental.car.service;
+package com.rental.core.car.service;
 
-import com.rental.car.dto.request.CreateCarDto;
-import com.rental.car.dto.request.UpdateCarDto;
-import com.rental.car.dto.response.CarDto;
+import com.rental.core.car.dto.request.CreateCarDto;
+import com.rental.core.car.dto.request.UpdateCarDto;
+import com.rental.core.car.dto.response.CarDto;
 import org.springframework.data.domain.Page;
 
 import java.util.UUID;

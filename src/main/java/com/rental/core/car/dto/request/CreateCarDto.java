@@ -1,7 +1,7 @@
-package com.rental.car.dto.request;
+package com.rental.core.car.dto.request;
 
-import com.rental.car.model.CarType;
-import com.rental.car.model.FuelType;
+import com.rental.core.car.model.CarType;
+import com.rental.core.car.model.FuelType;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;

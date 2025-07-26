@@ -1,6 +1,6 @@
-package com.rental.car.model;
+package com.rental.core.car.model;
 
-import com.rental.car.dto.request.UpdateCarDto;
+import com.rental.core.car.dto.request.UpdateCarDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,23 +17,32 @@ public class Car {
     private UUID id;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "type", nullable = false)
     private CarType type;
 
+    @Column(name = "brand", nullable = false)
     private String brand;
 
+    @Column(name = "model", nullable = false)
     private String model;
 
+    @Column(name = "vin", nullable = false)
     private String vin;
 
+    @Column(name = "registration_number", nullable = false)
     private String registrationNumber;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "fuel_type", nullable = false)
     private FuelType fuelType;
 
+    @Column(name = "year", nullable = false)
     private int year;
 
+    @Column(name = "price_per_day", nullable = false)
     private BigDecimal pricePerDay;
 
+    @Column(name = "is_available", nullable = false)
     private boolean isAvailable;
 
     public Car(CarType type, String brand, String model, String vin, String registrationNumber, FuelType fuelType, int year, BigDecimal pricePerDay) {

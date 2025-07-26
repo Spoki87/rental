@@ -1,9 +1,9 @@
-package com.rental.car.controller;
+package com.rental.core.car.controller;
 
-import com.rental.car.dto.request.CreateCarDto;
-import com.rental.car.dto.request.UpdateCarDto;
-import com.rental.car.dto.response.CarDto;
-import com.rental.car.service.CarService;
+import com.rental.core.car.dto.request.CreateCarDto;
+import com.rental.core.car.dto.request.UpdateCarDto;
+import com.rental.core.car.dto.response.CarDto;
+import com.rental.core.car.service.CarService;
 import com.rental.response.Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

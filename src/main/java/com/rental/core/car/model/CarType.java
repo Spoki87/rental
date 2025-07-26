@@ -1,4 +1,4 @@
-package com.rental.car.model;
+package com.rental.core.car.model;
 
 public enum CarType {
     SUV,SEDAN,HATCHBACK

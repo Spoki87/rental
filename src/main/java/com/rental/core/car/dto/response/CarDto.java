@@ -1,7 +1,7 @@
-package com.rental.car.dto.response;
+package com.rental.core.car.dto.response;
 
-import com.rental.car.model.CarType;
-import com.rental.car.model.FuelType;
+import com.rental.core.car.model.CarType;
+import com.rental.core.car.model.FuelType;
 import lombok.Value;
 
 import java.math.BigDecimal;
