@@ -1,10 +1,13 @@
 package com.rental.core.car.model;
 
 import com.rental.core.car.dto.request.UpdateCarDto;
+import com.rental.core.damage.model.Damage;
+import com.rental.core.inspection.model.Inspection;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -44,6 +47,12 @@ public class Car {
 
     @Column(name = "is_available", nullable = false)
     private boolean isAvailable;
+
+    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
+    private List<Damage> damages;
+
+    @OneToMany(mappedBy = "inspection", cascade = CascadeType.ALL)
+    private List<Inspection> inspections;
 
     public Car(CarType type, String brand, String model, String vin, String registrationNumber, FuelType fuelType, int year, BigDecimal pricePerDay) {
         this.type = type;
