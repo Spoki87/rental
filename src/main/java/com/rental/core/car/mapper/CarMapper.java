@@ -1,7 +1,7 @@
 package com.rental.core.car.mapper;
 
-import com.rental.core.car.dto.request.CreateCarDto;
 import com.rental.core.car.dto.response.CarDto;
+import com.rental.core.car.dto.response.SimpleCarDto;
 import com.rental.core.car.model.Car;
 import org.springframework.stereotype.Component;
 
@@ -23,16 +23,10 @@ public class CarMapper {
         );
     }
 
-    public Car toEntity(CreateCarDto createCarDto){
-        return new Car(
-                createCarDto.getType(),
-                createCarDto.getBrand(),
-                createCarDto.getModel(),
-                createCarDto.getVin(),
-                createCarDto.getRegistrationNumber(),
-                createCarDto.getFuelType(),
-                createCarDto.getYear(),
-                createCarDto.getPricePerDay()
+    public SimpleCarDto toSimpleDto(Car car){
+        return new SimpleCarDto(
+                car.getId(),
+                car.getBrand() + " " + car.getModel()
         );
     }
 

@@ -49,7 +49,16 @@ public class CarServiceImpl implements CarService{
 
     @Override
     public CarDto createCar(CreateCarDto createCarDto) {
-        Car car = carMapper.toEntity(createCarDto);
+        Car car = new Car(
+                createCarDto.getType(),
+                createCarDto.getBrand(),
+                createCarDto.getModel(),
+                createCarDto.getVin(),
+                createCarDto.getRegistrationNumber(),
+                createCarDto.getFuelType(),
+                createCarDto.getYear(),
+                createCarDto.getPricePerDay()
+        );
         carRepository.save(car);
         return carMapper.toDto(car);
     }

@@ -1,6 +1,7 @@
 package com.rental.core.damage.model;
 
 import com.rental.core.car.model.Car;
+import com.rental.core.damage.dto.request.UpdateDamageDto;
 import com.rental.user.appuser.model.User;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -36,4 +37,26 @@ public class Damage {
 
     @Column(name = "repair_cost")
     private BigDecimal repairCost;
+
+    public Damage(User user, Car car, LocalDate damageDate, String description, BigDecimal repairCost) {
+        this.user = user;
+        this.car = car;
+        this.damageDate = damageDate;
+        this.repairCost = repairCost;
+        this.description = description;
+        if (this.description == null) {
+            this.description = "";
+        }
+    }
+
+    public void updateDamageDetails(UpdateDamageDto updateDamageDto, User user, Car car){
+        this.user = user;
+        this.car = car;
+        this.damageDate = updateDamageDto.getDamageDate();
+        this.repairCost = updateDamageDto.getRepairCost();
+        this.description = updateDamageDto.getDescription();
+        if (this.description == null) {
+            this.description = "";
+        }
+    }
 }

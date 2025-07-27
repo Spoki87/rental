@@ -33,7 +33,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Response<String>> handleInvalidEnumValue(InvalidFormatException ex) {
         String message = "Invalid value provided";
         if (ex.getTargetType().isEnum() && !ex.getPath().isEmpty()) {
-            String fieldName = ex.getPath().get(0).getFieldName();
+            String fieldName = ex.getPath().getFirst().getFieldName();
             message = String.format("Invalid value '%s' for field '%s'", ex.getValue(), fieldName);
         }
         return buildError(message, HttpStatus.BAD_REQUEST);

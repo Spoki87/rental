@@ -7,6 +7,7 @@ import com.rental.user.appuser.dto.response.UserDto;
 import com.rental.user.appuser.model.Role;
 import com.rental.user.appuser.model.User;
 import com.rental.user.appuser.repository.UserRepository;
+import com.rental.user.mapper.UserMapper;
 import com.rental.user.registrationtoken.RegistrationTokenService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,6 +23,7 @@ public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final RegistrationTokenService registrationTokenService;
+    private final UserMapper userMapper;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
@@ -47,11 +49,7 @@ public class UserService implements UserDetailsService {
         userRepository.save(user);
         registrationTokenService.createToken(user);
 
-        return new UserDto(
-                user.getId(),
-                user.getEmail(),
-                user.getRole()
-        );
+        return userMapper.toDto(user);
     }
 
     public void confirmRegistration(String token){
