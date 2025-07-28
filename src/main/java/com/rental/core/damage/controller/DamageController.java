@@ -1,7 +1,5 @@
 package com.rental.core.damage.controller;
 
-import com.rental.core.car.dto.request.CreateCarDto;
-import com.rental.core.car.dto.request.UpdateCarDto;
 import com.rental.core.car.dto.response.CarDto;
 import com.rental.core.damage.dto.request.CreateDamageDto;
 import com.rental.core.damage.dto.request.UpdateDamageDto;

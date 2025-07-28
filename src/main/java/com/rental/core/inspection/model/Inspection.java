@@ -1,6 +1,7 @@
 package com.rental.core.inspection.model;
 
 import com.rental.core.car.model.Car;
+import com.rental.core.inspection.dto.request.UpdateInspectionDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,4 +32,21 @@ public class Inspection {
 
     @Column(name = "notes", length = 3000)
     private String notes;
+
+    public Inspection(Car car, InspectionStatus status, LocalDate inspectionDate, String notes) {
+        this.car = car;
+        this.status = status;
+        this.inspectionDate = inspectionDate;
+        this.notes = notes;
+    }
+
+    public void updateInspectionDetails(UpdateInspectionDto updateInspectionDto, Car car){
+        this.car = car;
+        this.status = updateInspectionDto.getStatus();
+        this.inspectionDate = updateInspectionDto.getInspectionDate();
+        this.notes = updateInspectionDto.getNotes();
+        if(notes == null){
+            this.notes = "";
+        }
+    }
 }

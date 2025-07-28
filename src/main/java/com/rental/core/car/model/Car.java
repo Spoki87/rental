@@ -51,7 +51,7 @@ public class Car {
     @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
     private List<Damage> damages;
 
-    @OneToMany(mappedBy = "inspection", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
     private List<Inspection> inspections;
 
     public Car(CarType type, String brand, String model, String vin, String registrationNumber, FuelType fuelType, int year, BigDecimal pricePerDay) {
