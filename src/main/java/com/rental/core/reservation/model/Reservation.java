@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.UUID;
 
 @Entity
@@ -19,6 +22,9 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+
+    @Column(name = "reservation_number", unique = true, nullable = false)
+    private String reservationNumber;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
@@ -47,11 +53,19 @@ public class Reservation {
     @Column(name = "total_price")
     private BigDecimal totalPrice;
 
+    private String generateReservationNumber() {
+        String timestamp = DateTimeFormatter.ofPattern("yyyyMMddHHmmss")
+                .format(LocalDateTime.now());
+        String random = UUID.randomUUID().toString().substring(0, 3).toUpperCase();
+        return "R" + timestamp + random;
+    }
+
     @PrePersist
     public void prePersist() {
         this.createdAt = LocalDate.now();
-        if (this.status == null) {
-            this.status = ReservationStatus.PENDING;
-        }
+        this.status = ReservationStatus.PENDING;
+        this.reservationNumber = generateReservationNumber();
+        this.reservationDays = (int) ChronoUnit.DAYS.between(from, to);
     }
+
 }
