@@ -23,6 +23,7 @@ public class CreateInspectionDto {
     private InspectionStatus status;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @NotNull(message = "Inspection date is required")
     private LocalDate inspectionDate;
 
     @Size(max = 3000, message = "Description can be at most 3000 characters long")

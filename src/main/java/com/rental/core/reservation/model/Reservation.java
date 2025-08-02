@@ -63,9 +63,10 @@ public class Reservation {
     @PrePersist
     public void prePersist() {
         this.createdAt = LocalDate.now();
-        this.status = ReservationStatus.PENDING;
+        this.status = ReservationStatus.ACCEPTED;
         this.reservationNumber = generateReservationNumber();
         this.reservationDays = (int) ChronoUnit.DAYS.between(from, to);
+        this.totalPrice = car.getPricePerDay().multiply(BigDecimal.valueOf(reservationDays));
     }
 
 }
