@@ -69,4 +69,10 @@ public class Reservation {
         this.totalPrice = car.getPricePerDay().multiply(BigDecimal.valueOf(reservationDays));
     }
 
+    @PreUpdate
+    public void preUpdate() {
+        this.reservationDays = (int) ChronoUnit.DAYS.between(from, to);
+        this.totalPrice = car.getPricePerDay().multiply(BigDecimal.valueOf(reservationDays));
+    }
+
 }

@@ -16,6 +16,9 @@ import java.util.UUID;
 @AllArgsConstructor
 public class CreateInspectionDto {
 
+    @NotNull(message = "User id is required")
+    private UUID userId;
+
     @NotNull(message = "Car id is required")
     private UUID carId;
 
